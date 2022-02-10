@@ -48,12 +48,8 @@ dependencies:
   http: ^0.13.3
   global_configuration: ^2.0.0-nullsafety.1
   carousel_slider: ^3.0.0
-  device_preview: ^0.7.3
   provider: ^5.0.0
   location: ^4.3.0
-  sentry_flutter: ^5.1.0
-  sentry: ^5.1.0
-  camera:
 
 dev_dependencies:
   flutter_test:

@@ -8,33 +8,18 @@ import 'package:trkar_vendor/splash_screen.dart';
 import 'package:trkar_vendor/utils/Provider/provider.dart';
 import 'package:trkar_vendor/utils/Provider/provider_data.dart';
 import 'package:trkar_vendor/utils/local/AppLocalizations.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GlobalConfiguration().loadFromAsset("configurations");
   print("base_url: ${GlobalConfiguration().getString('base_url')}");
-  // runApp(MultiProvider(providers: [
-  //   ChangeNotifierProvider<Provider_control>(
-  //     create: (_) => Provider_control(),
-  //   ),
-  //   ChangeNotifierProvider<Provider_Data>(
-  //     create: (_) => Provider_Data(),
-  //   ),
-  // ], child:MyApp()));
-  await SentryFlutter.init(
-    (options) {
-      options.dsn =
-          'https://536b9d1a8e014f0dbca91d2f7f5c487a@o551399.ingest.sentry.io/5825146';
-    },
-    appRunner: () => runApp(MultiProvider(providers: [
-      ChangeNotifierProvider<Provider_control>(
-        create: (_) => Provider_control(),
-      ),
-      ChangeNotifierProvider<Provider_Data>(
-        create: (_) => Provider_Data(),
-      ),
-    ], child: MyApp())),
-  );
+   runApp(MultiProvider(providers: [
+     ChangeNotifierProvider<Provider_control>(
+       create: (_) => Provider_control(),
+     ),
+     ChangeNotifierProvider<Provider_Data>(
+       create: (_) => Provider_Data(),
+     ),
+   ], child:MyApp()));
 
   // OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
   // OneSignal.shared.init(
